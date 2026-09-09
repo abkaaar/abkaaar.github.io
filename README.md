@@ -25,7 +25,7 @@ npm run build
 npm run preview
 ```
 
-Configured for `https://abkaaar.github.io/abkaaar/` (`base: '/abkaaar'`). For a custom domain later, set `base: '/'` in `astro.config.mjs` and add a `CNAME` in `public/`.
+Configured for `https://abkaaar.github.io/` (`base: '/'`). The GitHub remote is `abkaaar/abkaaar.github.io`.
 
 ## Notion + deploy
 

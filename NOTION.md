@@ -86,7 +86,7 @@ Repo → **Settings → Pages → Build and deployment → Source: GitHub Action
 
 Push to `main` or run **Deploy to GitHub Pages** via **Actions → workflow_dispatch**.
 
-Site URL: `https://abkaaar.github.io/abkaaar/`
+Site URL: `https://abkaaar.github.io/`
 
 ## 6. Seed existing projects
 
