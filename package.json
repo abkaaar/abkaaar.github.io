@@ -1,0 +1,17 @@
+{
+  "name": "abkaaar",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "astro": "^5.7.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

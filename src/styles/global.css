@@ -6,14 +6,14 @@
     font-family: 'Hk Grotesk';
     font-style: normal;
     font-weight: 400;
-    src: url('./Fonts/HKGrotesk-Regular.woff') format('woff');
+    src: url('/abkaaar/Fonts/HKGrotesk-Regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 400;
-    src: url('./Fonts/Jost-Regular.ttf') format('woff');
+    src: url('/abkaaar/Fonts/Jost-Regular.ttf') format('truetype');
 }
 
 * {
@@ -436,13 +436,19 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./Images/header.jpg');
+    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)),
+        url('/abkaaar/Images/header.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     font-size: var(--font-size-normal);
+}
+
+.header--compact {
+    height: auto;
+    min-height: 0;
+    background-attachment: scroll;
 }
 
 .header__text {
@@ -644,4 +650,131 @@ body:not(.user-is-tabbing) a:focus {
     .footer {
         padding: var(--gutter-medium) 0;
     } 
+}
+
+/* --------------------------------------- */
+/* ----- Blog & Books ----- */
+/* --------------------------------------- */
+
+.page-header {
+    padding: var(--gutter-medium) 0 0;
+}
+
+.page-header h1 {
+    font-size: var(--font-size-large);
+}
+
+.page-header h1::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 10rem;
+    background: var(--pink);
+    margin: var(--gutter-small) 0;
+}
+
+.content-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-medium);
+}
+
+.content-card {
+    border-bottom: var(--border-light);
+    padding-bottom: var(--gutter-normal);
+}
+
+.content-card h2,
+.content-card h3 {
+    margin-bottom: var(--gutter-small);
+}
+
+.content-card a {
+    text-decoration: none;
+}
+
+.content-card a:hover {
+    color: var(--pink);
+}
+
+.content-meta {
+    color: var(--white-1);
+    opacity: 0.8;
+    font-size: var(--font-size-small);
+    margin: 0;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--gutter-medium);
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-small);
+}
+
+.book-card__cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    background: rgb(36, 35, 35);
+}
+
+.book-card__status {
+    display: inline-block;
+    color: var(--pink);
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.prose {
+    max-width: var(--container-normal-width);
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+    margin-top: var(--gutter-medium);
+}
+
+.prose p {
+    max-width: none;
+}
+
+.prose ul,
+.prose ol {
+    margin: var(--gutter-small) 0;
+    padding-left: var(--gutter-normal);
+}
+
+.prose img {
+    margin: var(--gutter-normal) 0;
+}
+
+.prose pre {
+    overflow-x: auto;
+    padding: var(--gutter-small);
+    background: rgb(20, 20, 20);
+    border: var(--border-light);
+    margin: var(--gutter-normal) 0;
+}
+
+.prose code {
+    font-family: ui-monospace, monospace;
+    font-size: 0.9em;
+}
+
+.prose blockquote {
+    border-left: 3px solid var(--pink);
+    padding-left: var(--gutter-small);
+    margin: var(--gutter-normal) 0;
+    opacity: 0.9;
+}
+
+.empty-state {
+    opacity: 0.75;
 }

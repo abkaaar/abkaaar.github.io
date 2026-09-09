@@ -2,5 +2,24 @@
 logs
 *.log
 
-# fonts
-Fonts
+# dependencies
+node_modules/
+
+# build
+dist/
+.astro/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# fonts (kept in public/Fonts for Astro; ignore legacy root Fonts if present)
+/Fonts
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

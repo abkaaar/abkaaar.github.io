@@ -1,0 +1,29 @@
+---
+import Nav from './Nav.astro';
+
+interface Props {
+  showHero?: boolean;
+}
+
+const { showHero = true } = Astro.props;
+---
+
+<header class:list={['header', { 'header--compact': !showHero }]} role="banner" id="top">
+  <div class="row">
+    <Nav />
+  </div>
+  {
+    showHero && (
+      <div class="header__text-box row">
+        <div class="header__text">
+          <h1 class="heading-primary">
+            <span>Abubakar Abdullahi</span>
+          </h1>
+          <p>A "Software Engineer & Architect" building modern digital products.</p>
+          <p style="font-size: x-large; margin-bottom: auto;">Get in touch 📩</p>
+          <a href="mailto:abkaaar2@gmail.com" class="btn">abkaaar2@gmail.com</a>
+        </div>
+      </div>
+    )
+  }
+</header>

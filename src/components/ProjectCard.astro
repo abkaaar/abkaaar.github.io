@@ -1,0 +1,49 @@
+---
+import type { Project } from '../lib/types';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="work__box">
+  <div class="work__text">
+    <h3>{project.name}</h3>
+    <p>{project.description}</p>
+    {
+      project.tags.length > 0 && (
+        <ul class="work__list">
+          {project.tags.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+    <div class="work__links">
+      {
+        project.siteUrl && (
+          <a href={project.siteUrl} target="_blank" class="link__text" rel="noopener noreferrer">
+            Visit Site <span>&rarr;</span>
+          </a>
+        )
+      }
+      {
+        project.githubUrl && (
+          <a href={project.githubUrl} title="View Source Code" target="_blank" rel="noopener noreferrer">
+            <img src={`${base}Images/github.svg`} class="work__code" alt="GitHub" />
+          </a>
+        )
+      }
+    </div>
+  </div>
+  {
+    project.imageUrl && (
+      <div class="work__image-box">
+        <img src={project.imageUrl} class="work__image" alt={project.name} />
+      </div>
+    )
+  }
+</div>

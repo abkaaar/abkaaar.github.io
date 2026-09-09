@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Not found | Abubakar Abdullahi">
+  <Header showHero={false} />
+  <main role="main">
+    <section class="page-header">
+      <div class="row">
+        <h1>404</h1>
+        <p>That page doesn’t exist.</p>
+        <a href={base} class="btn">Back home</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
