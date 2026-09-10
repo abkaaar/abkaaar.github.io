@@ -5,6 +5,11 @@ logs
 # dependencies
 node_modules/
 
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+workers/**/node_modules/
+
 # build leftovers
 dist/
 .astro/

@@ -17,13 +17,11 @@ async function loadBooks() {
   if (!root) return;
 
   try {
-    const res = await fetch('/data/books.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const books = await res.json();
+    const books = await window.fetchContent('/books', '/data/books.json');
 
     if (!books.length) {
       root.innerHTML =
-        '<p class="empty-state">No books yet. Add published entries in Notion and run <code>npm run sync</code>.</p>';
+        '<p class="empty-state">No books yet. Add published entries in Notion.</p>';
       return;
     }
 
@@ -46,7 +44,7 @@ async function loadBooks() {
   } catch (err) {
     console.error(err);
     root.innerHTML =
-      '<p class="empty-state">Could not load books. Run <code>npm run sync</code> then refresh.</p>';
+      '<p class="empty-state">Could not load books. Deploy the Cloudflare Worker or run <code>npm run sync</code>.</p>';
   }
 }
 

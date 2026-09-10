@@ -20,19 +20,17 @@ async function loadBlog() {
   if (!root) return;
 
   try {
-    const res = await fetch('/data/blogs.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const posts = await res.json();
+    const posts = await window.fetchContent('/blogs', '/data/blogs.json');
 
     if (!posts.length) {
       root.innerHTML =
-        '<p class="empty-state">No posts yet. Add published entries in Notion and run <code>npm run sync</code>.</p>';
+        '<p class="empty-state">No posts yet. Add published entries in Notion.</p>';
       return;
     }
 
     root.innerHTML = posts
       .map((post) => {
-        const href = `/blog/${encodeURIComponent(post.slug)}/`;
+        const href = `/blog/post.html?slug=${encodeURIComponent(post.slug)}`;
         const dateLabel = formatDate(post.date);
         return `
           <article class="content-card">
@@ -47,7 +45,7 @@ async function loadBlog() {
   } catch (err) {
     console.error(err);
     root.innerHTML =
-      '<p class="empty-state">Could not load posts. Run <code>npm run sync</code> then refresh.</p>';
+      '<p class="empty-state">Could not load posts. Deploy the Cloudflare Worker or run <code>npm run sync</code>.</p>';
   }
 }
 

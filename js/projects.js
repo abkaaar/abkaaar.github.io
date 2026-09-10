@@ -44,9 +44,7 @@ async function loadProjects() {
   if (!root) return;
 
   try {
-    const res = await fetch('/data/projects.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const projects = await res.json();
+    const projects = await window.fetchContent('/projects', '/data/projects.json');
     const featured = projects.filter((p) => p.featured);
     const more = projects.filter((p) => !p.featured);
 
@@ -69,7 +67,7 @@ async function loadProjects() {
   } catch (err) {
     console.error(err);
     root.innerHTML =
-      '<p class="empty-state">Could not load projects. Run <code>npm run sync</code> then refresh.</p>';
+      '<p class="empty-state">Could not load projects. Deploy the Cloudflare Worker or run <code>npm run sync</code>.</p>';
   }
 }
 

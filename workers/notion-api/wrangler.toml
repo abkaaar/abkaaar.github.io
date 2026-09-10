@@ -1,0 +1,9 @@
+name = "abkaaar-notion"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+# Secrets (set via wrangler secret put):
+# NOTION_TOKEN
+# NOTION_PROJECTS_DB_ID
+# NOTION_BLOGS_DB_ID
+# NOTION_BOOKS_DB_ID
