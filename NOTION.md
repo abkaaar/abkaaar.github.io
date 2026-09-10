@@ -91,6 +91,8 @@ Push to `main` or run **Deploy to GitHub Pages** via **Actions → workflow_disp
 
 Site URL: `https://abkaaar.github.io/`
 
+If Actions jobs fail immediately with **“account is locked due to a billing issue”**, fix billing at [GitHub Billing](https://github.com/settings/billing) (or unlock the account), then re-run **Deploy to GitHub Pages**. Secrets and Pages Source can be correct and still fail until billing is cleared.
+
 Optional helper (after `gh auth login`):
 
 ```powershell
