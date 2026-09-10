@@ -5,7 +5,7 @@ logs
 # dependencies
 node_modules/
 
-# build
+# build leftovers
 dist/
 .astro/
 
@@ -13,9 +13,6 @@ dist/
 .env
 .env.local
 .env.*.local
-
-# fonts (kept in public/Fonts for Astro; ignore legacy root Fonts if present)
-/Fonts
 
 # OS / editor
 .DS_Store

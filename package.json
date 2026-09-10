@@ -3,15 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "sync": "node scripts/sync-notion.mjs",
+    "dev": "npx --yes serve . -p 4321",
+    "seed": "node scripts/seed-notion-projects.mjs"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.15",
-    "astro": "^5.7.10"
-  },
-  "devDependencies": {
-    "typescript": "^5.8.3"
+    "@notionhq/client": "^2.2.15"
   }
 }

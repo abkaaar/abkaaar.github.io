@@ -1,34 +1,38 @@
 # abkaaar
 
-Personal portfolio for Abubakar Abdullahi — Astro site with **Notion** as the CMS and **GitHub Pages** hosting.
+Personal portfolio for Abubakar Abdullahi — **vanilla HTML/CSS/JS** with **Notion** as the CMS.
 
-## Stack
+## How it works
 
-- [Astro](https://astro.build) (static output)
-- Notion API (projects, blogs, books at build time)
-- GitHub Actions → GitHub Pages
+1. Content lives in Notion (Projects, Blogs, Books).
+2. Run `npm run sync` locally — writes `data/*.json` and `blog/<slug>/index.html`.
+3. Commit and push to `main` — GitHub Pages serves the static files (no Actions build required).
+
+The Notion token stays in `.env` on your machine. It is never shipped to the browser.
 
 ## Develop
 
 ```bash
 npm install
-cp .env.example .env   # add Notion credentials when ready
-npm run dev
+cp .env.example .env   # fill Notion credentials
+npm run sync
+npm run dev            # http://localhost:4321
 ```
 
-Without Notion env vars, the homepage falls back to seed projects in `src/lib/seed.ts`.
-
-## Build
+## Publish
 
 ```bash
-npm run build
-npm run preview
+npm run sync
+git add data blog
+git commit -m "Update content from Notion"
+git push
 ```
 
-Configured for `https://abkaaar.github.io/` (`base: '/'`). The GitHub remote is `abkaaar/abkaaar.github.io`.
+Repo: [`abkaaar/abkaaar.github.io`](https://github.com/abkaaar/abkaaar.github.io)  
+Site: [https://abkaaar.github.io/](https://abkaaar.github.io/)
 
-## Notion + deploy
+**Pages settings:** Source → **Deploy from a branch** → `main` / `/` (with `.nojekyll` so Jekyll does not parse the site). Do not use the old Astro Actions workflow.
 
-See [NOTION.md](./NOTION.md) for database schema, secrets, seeding projects, and GitHub Pages setup.
+## Notion setup
 
-**Pages Source must be GitHub Actions** (not “Deploy from a branch”). Branch deploy runs Jekyll and breaks on Astro `---` frontmatter.
+See [NOTION.md](./NOTION.md).
