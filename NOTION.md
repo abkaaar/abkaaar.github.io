@@ -80,13 +80,22 @@ If env vars are missing, the homepage uses **seed projects** from `src/lib/seed.
 
 ## 5. GitHub Pages secrets
 
-Repo → **Settings → Secrets and variables → Actions**, add the same four names as above.
+Repo: [`abkaaar/abkaaar.github.io`](https://github.com/abkaaar/abkaaar.github.io)
 
-Repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+1. **Settings → Secrets and variables → Actions** — add the same four names as above.
+2. **Settings → Pages → Build and deployment → Source: GitHub Actions**  
+   Do **not** use “Deploy from a branch”. That runs Jekyll on Astro source and fails with YAML front matter errors on `.astro` files.
+3. Use the workflow **Deploy to GitHub Pages** (Node/`astro build`). Ignore failures from **pages build and deployment** (Jekyll).
 
 Push to `main` or run **Deploy to GitHub Pages** via **Actions → workflow_dispatch**.
 
 Site URL: `https://abkaaar.github.io/`
+
+Optional helper (after `gh auth login`):
+
+```powershell
+powershell -File scripts/setup-github-deploy.ps1
+```
 
 ## 6. Seed existing projects
 

@@ -30,3 +30,5 @@ Configured for `https://abkaaar.github.io/` (`base: '/'`). The GitHub remote is 
 ## Notion + deploy
 
 See [NOTION.md](./NOTION.md) for database schema, secrets, seeding projects, and GitHub Pages setup.
+
+**Pages Source must be GitHub Actions** (not “Deploy from a branch”). Branch deploy runs Jekyll and breaks on Astro `---` frontmatter.
